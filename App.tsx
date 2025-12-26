@@ -7,7 +7,7 @@ import ProductPage from './pages/ProductPage'
 import CalculatorPage from './pages/CalculatorPage'
 import PartnerPage from './pages/PartnerPage'
 import TeamPage from './pages/TeamPage'
-import ContanctPage from './pages/ContanctPage'
+import ContactPage from './pages/ContactPage'
 
 const App: React.FC = () => {
   return (
@@ -15,14 +15,13 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Base />}>
-            <Route path="/" element={<Home/>} />
-            <Route path="/home" element={<Home/>}/>
-            <Route path="/about" element={<AboutPage/>}></Route>
-            <Route path="/product" element={<ProductPage/>}/>
-            <Route path="/calculator" element={<CalculatorPage/>}/>
-            <Route path="/partner" element={<PartnerPage/>}/>
-            <Route path="/team" element={<TeamPage/>}/>
-            <Route path="/contacat" element={<ContanctPage/>}/>
+            <Route index element={<Home />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="product" element={<ProductPage />} />
+            <Route path="calculator" element={<CalculatorPage />} />
+            <Route path="partner" element={<PartnerPage />} />
+            <Route path="team" element={<TeamPage />} />
+            <Route path="contact" element={<ContactPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,21 +1,34 @@
 import React from 'react';
 
+import bajaj from '../assets/banks/bajaj.png';
+import kotak from '../assets/banks/kotak.png';
+import aditya from '../assets/banks/aditya-birla.png';
+import tata from '../assets/banks/tata-capital.png';
+import axisBank from '../assets/banks/axis-bank.png';
+import icici from '../assets/banks/icici.png';
+import finnable from '../assets/banks/finnable.png';
+import hdfc from '../assets/banks/hdfc.png';
+import idfc from '../assets/banks/idfc.png';
+import indusind from '../assets/banks/indusind.png';
+import yes from '../assets/banks/yes-bank.png';
+import chola from '../assets/banks/cholamandalam.png';
+import piramal from '../assets/banks/piramal.png';
+
 const Partners: React.FC = () => {
   const banks = [
-    "Bajaj Finserv",
-    "Kotak Mahindra Bank",
-    "Aditya Birla",
-    "Tata Capital",
-    "Axis Finance",
-    "Axis Bank",
-    "ICICI Bank",
-    "Finnable",
-    "HDFC Bank",
-    "IDFC Bank",
-    "IndusInd Bank",
-    "Yes Bank",
-    "Cholamandalam",
-    "Piramal"
+    { name: "Bajaj Finserv", logo: bajaj },
+    { name: "Kotak Mahindra Bank", logo: kotak },
+    { name: "Aditya Birla", logo: aditya },
+    { name: "Tata Capital", logo: tata },
+    { name: "Axis Bank", logo: axisBank },
+    { name: "ICICI Bank", logo: icici },
+    { name: "Finnable", logo: finnable },
+    { name: "HDFC Bank", logo: hdfc },
+    { name: "IDFC Bank", logo: idfc },
+    { name: "IndusInd Bank", logo: indusind },
+    { name: "Yes Bank", logo: yes },
+    { name: "Cholamandalam", logo: chola },
+    { name: "Piramal", logo: piramal }
   ];
 
   return (
@@ -24,15 +37,20 @@ const Partners: React.FC = () => {
         <h2 className="text-3xl font-extrabold text-center text-slate-900 mb-12">
           Trusted Banking Partners
         </h2>
-        
+
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5">
           {banks.map((bank, index) => (
-            <div 
-              key={index} 
-              className="col-span-1 flex justify-center items-center p-6 bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 group"
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center p-6 bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <span className="text-sm md:text-base font-semibold text-slate-400 group-hover:text-brand-700 text-center">
-                {bank}
+              <img
+                src={bank.logo}
+                alt={bank.name}
+                className="h-10 object-contain mb-3"
+              />
+              <span className="text-sm font-semibold text-slate-500 text-center">
+                {bank.name}
               </span>
             </div>
           ))}

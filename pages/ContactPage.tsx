@@ -3,7 +3,7 @@ import Contact from '@/components/Contact'
 import Hero from '@/components/Hero'
 import React from 'react'
 
-export default function ContanctPage() {
+export default function ContactPage() {
   return (
     <>
         <Hero/>
