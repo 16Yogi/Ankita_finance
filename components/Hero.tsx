@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
                   Check Eligibility
                   <ChevronRight className="ml-2 -mr-1 w-5 h-5" />
                 </a>
-                <a href="#calculator" className="inline-flex items-center justify-center px-5 py-3 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 transition">
+                <a href="/calculator" className="inline-flex items-center justify-center px-5 py-3 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 transition">
                   Calculate Savings
                 </a>
               </div>
