@@ -14,6 +14,7 @@ const Calculator: React.FC = () => {
     let currentBalance = loanAmount;
     const rows: CalculationRow[] = [];
     const monthlyRate = interestRate / 100 / 12;
+    // alert(monthlyRate);
     let totalInt = 0;
 
     // Simulate for 12 months or until paid off
@@ -21,6 +22,7 @@ const Calculator: React.FC = () => {
       if (currentBalance <= 0) break;
 
       const interest = currentBalance * monthlyRate;
+      // alert(interest);
       totalInt += interest;
 
       rows.push({

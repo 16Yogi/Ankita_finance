@@ -57,15 +57,15 @@ const About: React.FC = () => {
 
             <div className="mt-8 pt-6 border-t border-slate-100">
                <div className="flex items-center gap-2 text-sm text-slate-500">
-                 <span>Reference: SEBI Registered Stock Market Advisor in Indore –</span>
-                 <a 
+                 {/* <span>Reference: SEBI Registered Stock Market Advisor in Indore –</span> */}
+                 {/* <a 
                    href="https://share.google/KB1WPbgxcYx6Zdm1s" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    className="inline-flex items-center text-brand-600 font-medium hover:underline"
                  >
                    Astrobulls <ExternalLink size={14} className="ml-1" />
-                 </a>
+                 </a> */}
                </div>
             </div>
           </div>

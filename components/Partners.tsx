@@ -13,6 +13,7 @@ import indusind from '../assets/banks/indusind.png';
 import yes from '../assets/banks/yes-bank.png';
 import chola from '../assets/banks/cholamandalam.png';
 import piramal from '../assets/banks/piramal.png';
+import lt from '../assets/banks/lt.png';
 
 const Partners: React.FC = () => {
   const banks = [
@@ -28,7 +29,8 @@ const Partners: React.FC = () => {
     { name: "IndusInd Bank", logo: indusind },
     { name: "Yes Bank", logo: yes },
     { name: "Cholamandalam", logo: chola },
-    { name: "Piramal", logo: piramal }
+    { name: "Piramal", logo: piramal },
+    { name: "L&T", logo: lt },
   ];
 
   return (
