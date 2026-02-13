@@ -2,7 +2,7 @@ import React from 'react';
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function Whatsapp() {
-  const phoneNumber = "8269152293"; // country code + number
+  const phoneNumber = "9111832196"; // country code + number
   const message = "Hello, I want to chat with you!";
 
   const openWhatsApp = () => {

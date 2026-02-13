@@ -1,16 +1,16 @@
 import React from 'react';
-import {
-  Landmark,
-  TrendingUp,
-  Zap,
-  Calendar,
-  Briefcase,
-  Percent,
-  Home,
-  FileText,
-  ShieldCheck,
-  Users,
-  Building2,
+import { 
+  Landmark, 
+  TrendingUp, 
+  Zap, 
+  Calendar, 
+  Briefcase, 
+  Percent, 
+  Home, 
+  FileText, 
+  ShieldCheck, 
+  Users, 
+  Building2, 
   Banknote,
   CheckCircle2,
   AlertCircle
@@ -146,10 +146,11 @@ const Features: React.FC = () => {
             const MainIcon = loan.features[0].icon;
 
             return (
-              <div
-                key={loan.id}
-                className={`flex flex-col lg:flex-row gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                  }`}
+              <div 
+                key={loan.id} 
+                className={`flex flex-col lg:flex-row gap-12 items-center ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}
               >
                 {/* Left Column: Title & Key Features */}
                 <div className="flex-1 space-y-8">
@@ -183,7 +184,7 @@ const Features: React.FC = () => {
                         Plan Details
                       </h4>
                     </div>
-
+                    
                     <div className="p-8 grid md:grid-cols-2 gap-8">
                       {/* Benefits List */}
                       <div>
@@ -218,7 +219,12 @@ const Features: React.FC = () => {
                       </div>
                     </div>
 
-
+                    {/* Call to Action Footer inside Card */}
+                    <div className="bg-slate-50 p-4 text-center border-t border-slate-100">
+                      <button className="text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">
+                        View Full Terms & Conditions &rarr;
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
