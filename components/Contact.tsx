@@ -1,126 +1,11 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-
-interface FormData {
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  product: string;
-}
+import React from 'react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    product: 'Overdraft Facility (Flexi)'
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [id]: value
-    }));
-  };
-
-  const validateForm = (): boolean => {
-    if (!formData.name.trim()) {
-      setErrorMessage('Please enter your full name');
-      return false;
-    }
-    if (!formData.email.trim()) {
-      setErrorMessage('Please enter your email address');
-      return false;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      setErrorMessage('Please enter a valid email address');
-      return false;
-    }
-    if (!formData.phone.trim()) {
-      setErrorMessage('Please enter your phone number');
-      return false;
-    }
-    return true;
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitStatus('idle');
-    setErrorMessage('');
-
-    if (!validateForm()) {
-      setSubmitStatus('error');
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      // Initialize EmailJS (you'll need to set up your EmailJS account)
-      // Replace these with your actual EmailJS credentials
-      const serviceId = (import.meta as any).env?.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
-      const templateId = (import.meta as any).env?.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
-      const publicKey = (import.meta as any).env?.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key';
-
-      // Initialize EmailJS
-      emailjs.init(publicKey);
-
-      // Prepare email template parameters
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company,
-        phone: formData.phone,
-        product: formData.product,
-        to_email: 'info@ank.finance', // Your email address
-        message: `New contact form submission from ${formData.name}:
-        
-Company: ${formData.company}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Interested Product: ${formData.product}
-
-This is an automated message from the Ank.finance contact form.`
-      };
-
-      // Send email
-      await emailjs.send(serviceId, templateId, templateParams);
-
-      setSubmitStatus('success');
-      // Reset form
-      setFormData({
-        name: '',
-        company: '',
-        email: '',
-        phone: '',
-        product: 'Overdraft Facility (Flexi)'
-      });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    } catch (error) {
-      console.error('Email sending error:', error);
-      setSubmitStatus('error');
-      setErrorMessage('Failed to send message. Please try again later or contact us directly at info@ank.finance');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact" className="py-16 bg-brand-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           <div>
             <h2 className="text-3xl font-extrabold sm:text-4xl mb-6">Get In Touch</h2>
@@ -141,7 +26,7 @@ This is an automated message from the Ank.finance contact form.`
                 <Mail className="h-6 w-6 text-brand-400 mt-1" />
                 <div className="ml-4">
                   <p className="text-lg font-medium">Email</p>
-                  <p className="text-brand-100">info@ank.finance</p>
+                  <p className="text-brand-100">ankitamarkam994@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -168,109 +53,18 @@ This is an automated message from the Ank.finance contact form.`
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-8 text-slate-900 shadow-xl">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              {/* Success Message */}
-              {submitStatus === 'success' && (
-                <div className="bg-green-50 border border-green-200 rounded-md p-4 flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
-                  <div>
-                    <p className="text-sm font-medium text-green-800">Message sent successfully!</p>
-                    <p className="text-sm text-green-700 mt-1">We'll get back to you soon.</p>
-                  </div>
+          <div className="relative h-full min-h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl border border-brand-700/50 group">
+             <img 
+               src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1932&q=80" 
+               alt="Customer Support" 
+               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-900/60 to-transparent flex flex-col justify-end p-8 sm:p-12">
+                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">We're Here to Help</h3>
+                  <p className="text-brand-100 text-lg leading-relaxed max-w-md">Our dedicated team is ready to assist you with all your financial needs. Reach out to us today for personalized support using the contact details.</p>
                 </div>
-              )}
-
-              {/* Error Message */}
-              {submitStatus === 'error' && (
-                <div className="bg-red-50 border border-red-200 rounded-md p-4 flex items-start">
-                  <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
-                  <div>
-                    <p className="text-sm font-medium text-red-800">Error sending message</p>
-                    <p className="text-sm text-red-700 mt-1">{errorMessage || 'Please try again later.'}</p>
-                  </div>
-                </div>
-              )}
-
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-700">Full Name *</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full border border-slate-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand-500 focus:border-brand-500" 
-                  placeholder="John Doe" 
-                />
-              </div>
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-slate-700">Company Name</label>
-                <input 
-                  type="text" 
-                  id="company" 
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="mt-1 block w-full border border-slate-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand-500 focus:border-brand-500" 
-                  placeholder="Your Employer" 
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700">Email *</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="mt-1 block w-full border border-slate-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand-500 focus:border-brand-500" 
-                      placeholder="john@example.com" 
-                    />
-                </div>
-                <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-slate-700">Phone *</label>
-                    <input 
-                      type="tel" 
-                      id="phone" 
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="mt-1 block w-full border border-slate-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand-500 focus:border-brand-500" 
-                      placeholder="+91..." 
-                    />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="product" className="block text-sm font-medium text-slate-700">Interested Product</label>
-                <select 
-                  id="product" 
-                  value={formData.product}
-                  onChange={handleChange}
-                  className="mt-1 block w-full border border-slate-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-brand-500 focus:border-brand-500"
-                >
-                  <option>Overdraft Facility (Flexi)</option>
-                  <option>Personal Loan</option>
-                  <option>Business Loan</option>
-                </select>
-              </div>
-              <div>
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="animate-spin h-5 w-5 mr-2" />
-                      Sending...
-                    </>
-                  ) : (
-                    'Request Call Back'
-                  )}
-                </button>
-              </div>
-            </form>
+             </div>
           </div>
         </div>
       </div>

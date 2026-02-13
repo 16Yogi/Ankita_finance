@@ -52,7 +52,7 @@ const Features: React.FC = () => {
         'Net Monthly Salary > ₹25,000',
         'Minimum 6 months work experience',
         'Salary credited via bank transfer',
-        'CIBIL Score > 650'
+        'CIBIL Score > 700'
       ]
     },
     {
@@ -65,8 +65,8 @@ const Features: React.FC = () => {
         { title: 'Paperless', desc: '100% Digital process.', icon: FileText },
       ],
       benefits: [
-        'Flexible tenure up to 60 months',
-        'Competitive interest rates starting @ 10.99%',
+        'Flexible tenure up to 96 months',
+        'Competitive interest rates starting @ 9.99%',
         'Consolidate debt into one payment',
         'Top-up loan facility available'
       ],
